@@ -4,6 +4,7 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+.mplconfig/
 .idea/
 .vscode/
 
@@ -34,6 +35,7 @@ HELLOWORLD/checkpoints/
 HELLOWORLD/results/*.png
 HELLOWORLD/results/*.npz
 HELLOWORLD/annotations/*.docx
+!docs/assets/*.png
 
 # OS files
 Thumbs.db

@@ -69,6 +69,11 @@ def main() -> None:
         PROJECT / "results" / "test_report.txt",
         ROOT / "docs" / "reproducibility.md",
         ROOT / "docs" / "methodology.md",
+        ROOT / "docs" / "showcase.md",
+        ROOT / "docs" / "artifact_manifest.md",
+        ROOT / "docs" / "assets" / "pipeline_overview.png",
+        ROOT / "docs" / "assets" / "training_curves.png",
+        ROOT / "docs" / "assets" / "test_prediction_distribution.png",
     ]
     for path in required_files:
         require(path)

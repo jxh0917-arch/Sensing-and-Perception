@@ -1,5 +1,7 @@
 # Results
 
+For a visual summary, see the training and prediction figures in [showcase.md](showcase.md).
+
 ## Validation Summary
 
 The current validation report in `HELLOWORLD/results/test_report.txt` records:

@@ -85,6 +85,8 @@ The included validation report records:
 
 These results are from the internal validation split and should be interpreted as evidence for the development workflow, not as a substitute for the hidden test-set leaderboard.
 
+For a visual walkthrough of the full public project evidence, see [docs/showcase.md](docs/showcase.md).
+
 ## Reproducibility Notes
 
 - Main configuration lives in `HELLOWORLD/config.py`.
@@ -94,6 +96,7 @@ These results are from the internal validation split and should be interpreted a
 - Checkpoints are not tracked because they are large; store trained weights externally or attach them to a GitHub Release if required.
 
 See [docs/reproducibility.md](docs/reproducibility.md) for the complete procedure.
+See [docs/artifact_manifest.md](docs/artifact_manifest.md) for the public/local artifact split and large-file rationale.
 
 ## Academic Positioning
 
