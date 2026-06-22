@@ -1,0 +1,52 @@
+================================================================================
+Evaluation Report
+================================================================================
+
+Overall Accuracy: 0.9905 (99.05%)
+
+Macro Average Metrics:
+  Precision: 0.9917
+  Recall: 0.9905
+  F1 Score: 0.9904
+
+Micro Average Metrics:
+  Precision: 0.9905
+  Recall: 0.9905
+  F1 Score: 0.9905
+
+Per-Class Detailed Metrics:
+--------------------------------------------------------------------------------
+Class                             Precision     Recall       F1 Score     Support      
+--------------------------------------------------------------------------------
+DeliverObject                  1.0000     1.0000     1.0000     7         
+MoveBackwardsWhileDrilling     1.0000     0.8571     0.9231     7         
+MoveBackwardsWhilePolishing    1.0000     0.8571     0.9231     7         
+MoveDiagonallyBackwardLeftWithDrill 0.8750     1.0000     0.9333     7         
+MoveDiagonallyBackwardLeftWithPolisher 0.8750     1.0000     0.9333     7         
+MoveDiagonallyBackwardRightWithDrill 1.0000     1.0000     1.0000     7         
+MoveDiagonallyBackwardRightWithPolisher 1.0000     1.0000     1.0000     7         
+MoveDiagonallyForwardLeftWithDrill 1.0000     1.0000     1.0000     7         
+MoveDiagonallyForwardLeftWithPolisher 1.0000     1.0000     1.0000     7         
+MoveDiagonallyForwardRightWithDrill 1.0000     1.0000     1.0000     7         
+MoveDiagonallyForwardRightWithPolisher 1.0000     1.0000     1.0000     7         
+MoveForwardWhileDrilling       1.0000     1.0000     1.0000     7         
+MoveForwardWhilePolishing      1.0000     1.0000     1.0000     7         
+MoveLeftWhileDrilling          1.0000     1.0000     1.0000     7         
+MoveLeftWhilePolishing         1.0000     1.0000     1.0000     7         
+MoveRightWhileDrilling         1.0000     1.0000     1.0000     7         
+MoveRightWhilePolishing        1.0000     1.0000     1.0000     7         
+NoCollaborativeWithDrilll      1.0000     1.0000     1.0000     7         
+NoCollaborativeWithPolisher    1.0000     1.0000     1.0000     7         
+PickUpDrill                    1.0000     1.0000     1.0000     7         
+PickUpPolisher                 1.0000     1.0000     1.0000     7         
+PickUpTheObject                1.0000     1.0000     1.0000     7         
+PutDownDrill                   1.0000     1.0000     1.0000     7         
+PutDownPolisher                1.0000     1.0000     1.0000     7         
+UsingTheDrill                  1.0000     1.0000     1.0000     7         
+UsingThePolisher               1.0000     1.0000     1.0000     7         
+Walking                        1.0000     1.0000     1.0000     7         
+WalkingWithObject              1.0000     1.0000     1.0000     7         
+WalkingWithDrill               1.0000     1.0000     1.0000     7         
+WalkingWithPolisher            1.0000     1.0000     1.0000     7         
+
+================================================================================
