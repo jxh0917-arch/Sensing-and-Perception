@@ -18,6 +18,34 @@ PROJECT = ROOT / "HELLOWORLD"
 ASSETS = ROOT / "docs" / "assets"
 
 
+def parse_validation_report() -> list[dict[str, float | int | str]]:
+    report_path = PROJECT / "results" / "test_report.txt"
+    rows: list[dict[str, float | int | str]] = []
+    in_table = False
+    with report_path.open("r", encoding="utf-8") as handle:
+        for line in handle:
+            stripped = line.strip()
+            if stripped.startswith("Class") and "Precision" in stripped:
+                in_table = True
+                continue
+            if not in_table or not stripped or stripped.startswith("-") or stripped.startswith("="):
+                continue
+            parts = stripped.split()
+            if len(parts) != 5:
+                continue
+            class_name, precision, recall, f1, support = parts
+            rows.append(
+                {
+                    "class_name": class_name,
+                    "precision": float(precision),
+                    "recall": float(recall),
+                    "f1": float(f1),
+                    "support": int(support),
+                }
+            )
+    return rows
+
+
 def save_training_curves() -> None:
     history_path = PROJECT / "logs" / "training_history_dual.json"
     with history_path.open("r", encoding="utf-8") as handle:
@@ -74,6 +102,41 @@ def save_prediction_distribution() -> None:
         axis.text(value + 0.35, y, str(value), va="center", fontsize=8)
     fig.tight_layout()
     fig.savefig(ASSETS / "test_prediction_distribution.png", bbox_inches="tight")
+    plt.close(fig)
+
+
+def save_validation_error_focus() -> None:
+    rows = parse_validation_report()
+    imperfect = [row for row in rows if float(row["f1"]) < 0.9999]
+    imperfect = sorted(imperfect, key=lambda row: float(row["f1"]))
+
+    fig, axis = plt.subplots(figsize=(9.5, 3.8), dpi=180)
+    names = [str(row["class_name"]) for row in imperfect]
+    f1_scores = [float(row["f1"]) for row in imperfect]
+    recall_misses = [
+        round(int(row["support"]) * (1.0 - float(row["recall"]))) for row in imperfect
+    ]
+
+    bars = axis.barh(names, f1_scores, color=["#ef8354", "#ef8354", "#6a8dff", "#6a8dff"])
+    axis.set_xlim(0.88, 1.005)
+    axis.set_xlabel("Validation F1 score")
+    axis.set_title("Validation Error Focus: Classes Below Perfect F1", fontsize=14, fontweight="bold")
+    axis.grid(axis="x", alpha=0.25)
+    axis.spines["top"].set_visible(False)
+    axis.spines["right"].set_visible(False)
+
+    for bar, row, misses in zip(bars, imperfect, recall_misses):
+        label = f"P={float(row['precision']):.3f}, R={float(row['recall']):.3f}, missed={misses}"
+        axis.text(
+            min(float(row["f1"]) + 0.003, 0.998),
+            bar.get_y() + bar.get_height() / 2,
+            label,
+            va="center",
+            fontsize=8.5,
+        )
+
+    fig.tight_layout()
+    fig.savefig(ASSETS / "validation_error_focus.png", bbox_inches="tight")
     plt.close(fig)
 
 
@@ -143,6 +206,7 @@ def main() -> None:
     ASSETS.mkdir(parents=True, exist_ok=True)
     save_training_curves()
     save_prediction_distribution()
+    save_validation_error_focus()
     save_pipeline_overview()
     print(f"Showcase assets written to {ASSETS.relative_to(ROOT)}")
 

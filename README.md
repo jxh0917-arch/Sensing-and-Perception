@@ -108,6 +108,12 @@ It follows the required coursework format:
 video_id,class_name,class_id
 ```
 
+### Validation Error Focus
+
+![Validation error focus](docs/assets/validation_error_focus.png)
+
+The few non-perfect validation classes are concentrated around backward and diagonal-backward motions, which are visually close in both body trajectory and tool context.
+
 ## Current Result Snapshot
 
 The included validation report records:
@@ -128,6 +134,9 @@ These results are from the internal validation split and should be interpreted a
 
 See [docs/reproducibility.md](docs/reproducibility.md) for the complete procedure.
 See [docs/environment.md](docs/environment.md) for the dependency files and upload policy.
+See [docs/model_card.md](docs/model_card.md) for intended use, inputs, outputs, and limitations.
+See [docs/experiment_log.md](docs/experiment_log.md) for the completed experiment and planned ablation protocol.
+See [docs/error_analysis.md](docs/error_analysis.md) for the validation error focus.
 See [docs/artifact_manifest.md](docs/artifact_manifest.md) for the public/local artifact split and large-file rationale.
 
 ## Project Positioning

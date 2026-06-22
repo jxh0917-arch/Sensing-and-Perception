@@ -70,12 +70,16 @@ def main() -> None:
         ROOT / "docs" / "reproducibility.md",
         ROOT / "docs" / "methodology.md",
         ROOT / "docs" / "environment.md",
+        ROOT / "docs" / "model_card.md",
+        ROOT / "docs" / "experiment_log.md",
+        ROOT / "docs" / "error_analysis.md",
         ROOT / "docs" / "project_notes.md",
         ROOT / "docs" / "artifact_manifest.md",
         ROOT / "environment.yml",
         ROOT / "docs" / "assets" / "pipeline_overview.png",
         ROOT / "docs" / "assets" / "training_curves.png",
         ROOT / "docs" / "assets" / "test_prediction_distribution.png",
+        ROOT / "docs" / "assets" / "validation_error_focus.png",
     ]
     for path in required_files:
         require(path)

@@ -1,6 +1,7 @@
 # Results
 
 For a visual summary, see the training and prediction figures in the repository `README.md`.
+For a focused discussion of non-perfect validation classes, see `docs/error_analysis.md`.
 
 ## Validation Summary
 

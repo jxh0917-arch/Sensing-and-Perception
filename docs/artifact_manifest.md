@@ -11,6 +11,9 @@ This manifest explains which project artifacts are public in GitHub and which ar
 | Methodology | `docs/methodology.md` | Model rationale and limitations |
 | Reproducibility guide | `docs/reproducibility.md` | End-to-end rerun instructions |
 | Results summary | `docs/results.md` | Validation metrics and interpretation |
+| Model card | `docs/model_card.md` | Intended use, inputs, outputs, and limitations |
+| Experiment log | `docs/experiment_log.md` | Completed experiment and planned ablation protocol |
+| Error analysis | `docs/error_analysis.md` | Validation error focus |
 | Project notes | `docs/project_notes.md` | Compact project discussion notes |
 | README showcase | `README.md` | Visual project walkthrough |
 | Environment guide | `docs/environment.md` | Reproducible setup and upload policy |
