@@ -1,6 +1,6 @@
 # Experiment Log
 
-This log records implemented experiments and planned comparisons. It avoids reporting baseline scores that were not measured.
+This log records implemented experiments and planned comparisons. It avoids reporting baseline scores that were not measured. A fuller comparison protocol is maintained in `docs/ablation_plan.md`.
 
 ## Completed Experiment
 
@@ -23,7 +23,7 @@ This log records implemented experiments and planned comparisons. It avoids repo
 
 ## Planned Ablation Protocol
 
-The following comparisons would strengthen the evidence base if rerun time is available:
+The following comparisons would strengthen the evidence base if rerun time is available. See `docs/ablation_plan.md` for hypotheses and reporting fields.
 
 | Planned ID | Model variant | Purpose |
 | --- | --- | --- |

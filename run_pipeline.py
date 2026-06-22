@@ -56,8 +56,16 @@ def run_stage(stage: str, python_executable: str, dry_run: bool) -> None:
 def run_checks(python_executable: str, dry_run: bool) -> None:
     run_command([python_executable, "tools/validate_repository.py"], ROOT, dry_run)
     source_files = [str(path.relative_to(ROOT)) for path in sorted((ROOT / "HELLOWORLD").glob("*.py"))]
-    source_files.extend(["run_pipeline.py", "tools/validate_repository.py", "tools/generate_showcase_assets.py"])
+    source_files.extend(
+        [
+            "run_pipeline.py",
+            "tools/validate_repository.py",
+            "tools/generate_showcase_assets.py",
+            "tools/prepare_release_bundle.py",
+        ]
+    )
     run_command([python_executable, "-m", "py_compile", *source_files], ROOT, dry_run)
+    run_command([python_executable, "tools/prepare_release_bundle.py"], ROOT, dry_run)
 
 
 def parse_args() -> argparse.Namespace:

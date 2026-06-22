@@ -32,6 +32,7 @@ HELLOWORLD/preprocessed_test_frames/
 HELLOWORLD/checkpoints/
 
 # Generated analysis artifacts
+dist/
 HELLOWORLD/results/*.png
 HELLOWORLD/results/*.npz
 HELLOWORLD/annotations/*.docx

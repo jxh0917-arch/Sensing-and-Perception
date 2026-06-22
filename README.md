@@ -18,8 +18,9 @@ The project targets the HRI30 industrial human-robot interaction setting. The me
 
 - A task-informed dual-branch architecture for industrial human action recognition.
 - A reproducible preprocessing workflow combining YOLOv8 person crops and MediaPipe-guided arm crops.
-- Public documentation for setup, data boundaries, model behaviour, experiment tracking, and error analysis.
-- A lightweight CI workflow that checks repository structure and Python syntax.
+- Public documentation for setup, data boundaries, model behaviour, experiment tracking, ablation planning, and error analysis.
+- A lightweight CI workflow that checks repository structure, Python syntax, and the release bundle path.
+- A release-ready packaging script that excludes raw datasets, generated frames, checkpoints, and local runtimes.
 
 ## Why This Design
 
@@ -47,6 +48,9 @@ Industrial actions can be visually similar at the whole-body level, especially w
 |   |-- project_brief.md             # coursework objectives and deliverables
 |   |-- methodology.md               # model rationale and limitations
 |   |-- literature_context.md        # related work and design context
+|   |-- ablation_plan.md             # measured result and planned comparisons
+|   |-- demo_guide.md                # walkthrough and public demo boundaries
+|   |-- release_artifacts.md         # release bundle contents and policy
 |   |-- reproducibility.md           # end-to-end reproduction guide
 |   |-- results.md                   # reported metrics and interpretation
 |   |-- project_notes.md             # concise project discussion notes
@@ -55,7 +59,8 @@ Industrial actions can be visually similar at the whole-body level, especially w
 |-- run_pipeline.py                  # workflow runner from repository root
 |-- scripts/run_pipeline.ps1         # PowerShell wrapper for Windows
 |-- tools/
-|   `-- validate_repository.py       # lightweight repository sanity checks
+|   |-- validate_repository.py       # lightweight repository sanity checks
+|   `-- prepare_release_bundle.py    # public release bundle builder
 `-- .github/workflows/ci.yml         # static CI checks
 ```
 
@@ -93,6 +98,12 @@ Alternatively, run common workflow targets from the repository root:
 ```bash
 python run_pipeline.py check
 python run_pipeline.py submission
+```
+
+To create a public GitHub Release bundle without large private artifacts:
+
+```bash
+python tools/prepare_release_bundle.py
 ```
 
 The final submission file is written to:
@@ -147,6 +158,10 @@ The included validation report records:
 
 These results are from the internal validation split and should be interpreted as evidence for the development workflow, not as a substitute for the hidden test-set leaderboard.
 
+## Evaluation and Next Experiments
+
+The repository distinguishes measured results from proposed comparisons. The completed experiment is the dual-branch R3D-18 + SmallArmCNN model with fixed `0.7/0.3` late fusion. The ablation plan proposes R3D-only, arm-only, alternative fusion weights, all-frame arm crops, learned fusion, and explicit direction cues as follow-up tests.
+
 ## Reproducibility Notes
 
 - Main configuration lives in `HELLOWORLD/config.py`.
@@ -159,6 +174,9 @@ See [docs/reproducibility.md](docs/reproducibility.md) for the complete procedur
 See [docs/environment.md](docs/environment.md) for the dependency files and upload policy.
 See [docs/data_card.md](docs/data_card.md) for dataset scope and public/private boundaries.
 See [docs/literature_context.md](docs/literature_context.md) for related work and method context.
+See [docs/ablation_plan.md](docs/ablation_plan.md) for measured and planned model comparisons.
+See [docs/demo_guide.md](docs/demo_guide.md) for a concise presentation walkthrough.
+See [docs/release_artifacts.md](docs/release_artifacts.md) for the public bundle and release policy.
 See [docs/model_card.md](docs/model_card.md) for intended use, inputs, outputs, and limitations.
 See [docs/experiment_log.md](docs/experiment_log.md) for the completed experiment and planned ablation protocol.
 See [docs/error_analysis.md](docs/error_analysis.md) for the validation error focus.
@@ -167,3 +185,11 @@ See [docs/artifact_manifest.md](docs/artifact_manifest.md) for the public/local 
 ## Project Positioning
 
 This work is best presented as a task-informed fusion pipeline for human-aware collaborative robotics. Its value is not only the high validation score, but the explicit decomposition of action recognition into global temporal motion and local arm/tool interaction evidence. That decomposition gives a clear research argument for why the model should generalise better than a single black-box baseline in manufacturing settings.
+
+## References
+
+- Tran et al., [A Closer Look at Spatiotemporal Convolutions for Action Recognition](https://arxiv.org/abs/1711.11248)
+- Kay et al., [The Kinetics Human Action Video Dataset](https://arxiv.org/abs/1705.06950)
+- Carreira and Zisserman, [Quo Vadis, Action Recognition?](https://arxiv.org/abs/1705.07750)
+- Bazarevsky et al., [BlazePose: On-device Real-time Body Pose tracking](https://arxiv.org/abs/2006.10204)
+- See `docs/literature_context.md` for additional context and positioning.

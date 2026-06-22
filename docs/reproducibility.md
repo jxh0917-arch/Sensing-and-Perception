@@ -146,6 +146,7 @@ You can also use the repository-level workflow runner:
 ```bash
 python run_pipeline.py check
 python run_pipeline.py submission --dry-run
+python tools/prepare_release_bundle.py
 ```
 
 On Windows PowerShell:
@@ -154,3 +155,5 @@ On Windows PowerShell:
 .\scripts\run_pipeline.ps1 check
 .\scripts\run_pipeline.ps1 submission -DryRun
 ```
+
+The release bundle command writes a zip file and SHA-256 checksum under `dist/`. The generated files are ignored by Git because they are derived artifacts.

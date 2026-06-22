@@ -11,6 +11,9 @@ This manifest explains which project artifacts are public in GitHub and which ar
 | Methodology | `docs/methodology.md` | Model rationale and limitations |
 | Data card | `docs/data_card.md` | Dataset scope and public/private boundary |
 | Literature context | `docs/literature_context.md` | Related work and method context |
+| Ablation plan | `docs/ablation_plan.md` | Measured result and planned comparisons |
+| Demo guide | `docs/demo_guide.md` | Walkthrough and public demo boundaries |
+| Release artifact guide | `docs/release_artifacts.md` | Public bundle contents and release policy |
 | Reproducibility guide | `docs/reproducibility.md` | End-to-end rerun instructions |
 | Results summary | `docs/results.md` | Validation metrics and interpretation |
 | Model card | `docs/model_card.md` | Intended use, inputs, outputs, and limitations |
@@ -21,6 +24,7 @@ This manifest explains which project artifacts are public in GitHub and which ar
 | Environment guide | `docs/environment.md` | Reproducible setup and upload policy |
 | Conda environment | `environment.yml` | Optional environment recreation file |
 | Workflow runner | `run_pipeline.py` | Runs common workflow stages from the repository root |
+| Release bundler | `tools/prepare_release_bundle.py` | Creates a release-ready zip without large private artifacts |
 | Prediction CSV | `HELLOWORLD/results/test_set_labels.csv` | Required final output format |
 | Detailed predictions | `HELLOWORLD/results/test_set_labels_detailed.csv` | Confidence analysis |
 | Validation report | `HELLOWORLD/results/test_report.txt` | Per-class metrics |
@@ -41,6 +45,7 @@ This manifest explains which project artifacts are public in GitHub and which ar
 For a public academic repository, keep code, documentation, result summaries, and generated figures in Git. Store large or restricted artifacts separately:
 
 - Use GitHub Releases only for redistributable model checkpoints or small demonstration bundles.
+- Use `python tools/prepare_release_bundle.py` to package the public project artifacts for a release.
 - Use institutional storage, OneDrive, Google Drive, Zenodo, or a course-provided data link for raw datasets.
 - Add checksums and download instructions if an artifact is necessary for exact reproduction.
 
