@@ -30,11 +30,13 @@ Industrial actions can be visually similar at the whole-body level, especially w
 |   |-- results/                     # tracked CSV/report outputs
 |   `-- requirements.txt             # CUDA-oriented dependencies
 |-- docs/
+|   |-- environment.md              # dependency and upload policy
 |   |-- project_brief.md             # coursework objectives and deliverables
 |   |-- methodology.md               # model rationale and limitations
 |   |-- reproducibility.md           # end-to-end reproduction guide
 |   |-- results.md                   # reported metrics and interpretation
 |   `-- phd_interview_notes.md       # concise narrative for research interviews
+|-- environment.yml                  # optional Conda environment specification
 |-- tools/
 |   `-- validate_repository.py       # lightweight repository sanity checks
 `-- .github/workflows/ci.yml         # static CI checks
@@ -96,6 +98,7 @@ For a visual walkthrough of the full public project evidence, see [docs/showcase
 - Checkpoints are not tracked because they are large; store trained weights externally or attach them to a GitHub Release if required.
 
 See [docs/reproducibility.md](docs/reproducibility.md) for the complete procedure.
+See [docs/environment.md](docs/environment.md) for the dependency files and upload policy.
 See [docs/artifact_manifest.md](docs/artifact_manifest.md) for the public/local artifact split and large-file rationale.
 
 ## Academic Positioning

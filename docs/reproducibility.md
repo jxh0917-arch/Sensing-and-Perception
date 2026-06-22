@@ -17,7 +17,16 @@ Install dependencies from the project root:
 python -m pip install -r requirements.txt
 ```
 
+Alternatively, create the Conda environment:
+
+```bash
+conda env create -f environment.yml
+conda activate sensing-perception
+```
+
 If CUDA wheels are unavailable for your platform, install the matching PyTorch build from the official PyTorch selector, then reinstall the remaining packages in `HELLOWORLD/requirements.txt`.
+
+See `docs/environment.md` for the upload policy: dependency specifications are committed, but the local Python runtime and virtual environments are not.
 
 ## 2. Data Placement
 

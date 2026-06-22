@@ -13,6 +13,8 @@ This manifest explains which project artifacts are public in GitHub and which ar
 | Results summary | `docs/results.md` | Validation metrics and interpretation |
 | Interview notes | `docs/phd_interview_notes.md` | Compact PhD interview narrative |
 | Showcase page | `docs/showcase.md` | Visual project walkthrough |
+| Environment guide | `docs/environment.md` | Reproducible setup and upload policy |
+| Conda environment | `environment.yml` | Optional environment recreation file |
 | Prediction CSV | `HELLOWORLD/results/test_set_labels.csv` | Required final output format |
 | Detailed predictions | `HELLOWORLD/results/test_set_labels_detailed.csv` | Confidence analysis |
 | Validation report | `HELLOWORLD/results/test_report.txt` | Per-class metrics |
