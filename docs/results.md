@@ -1,6 +1,6 @@
 # Results
 
-For a visual summary, see the training and prediction figures in [showcase.md](showcase.md).
+For a visual summary, see the training and prediction figures in the repository `README.md`.
 
 ## Validation Summary
 

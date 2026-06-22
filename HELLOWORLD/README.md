@@ -2,7 +2,7 @@
 
 This directory contains the executable workflow for the human-aware action-recognition project.
 
-For the academic overview, assessment alignment, and interview narrative, start from the repository-level `README.md` and the `docs/` directory.
+For the academic overview, assessment alignment, and project narrative, start from the repository-level `README.md` and the `docs/` directory.
 
 ## Core Idea
 

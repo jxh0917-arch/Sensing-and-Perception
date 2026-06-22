@@ -11,8 +11,8 @@ This manifest explains which project artifacts are public in GitHub and which ar
 | Methodology | `docs/methodology.md` | Model rationale and limitations |
 | Reproducibility guide | `docs/reproducibility.md` | End-to-end rerun instructions |
 | Results summary | `docs/results.md` | Validation metrics and interpretation |
-| Interview notes | `docs/phd_interview_notes.md` | Compact PhD interview narrative |
-| Showcase page | `docs/showcase.md` | Visual project walkthrough |
+| Project notes | `docs/project_notes.md` | Compact project discussion notes |
+| README showcase | `README.md` | Visual project walkthrough |
 | Environment guide | `docs/environment.md` | Reproducible setup and upload policy |
 | Conda environment | `environment.yml` | Optional environment recreation file |
 | Prediction CSV | `HELLOWORLD/results/test_set_labels.csv` | Required final output format |

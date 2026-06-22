@@ -70,7 +70,7 @@ def main() -> None:
         ROOT / "docs" / "reproducibility.md",
         ROOT / "docs" / "methodology.md",
         ROOT / "docs" / "environment.md",
-        ROOT / "docs" / "showcase.md",
+        ROOT / "docs" / "project_notes.md",
         ROOT / "docs" / "artifact_manifest.md",
         ROOT / "environment.yml",
         ROOT / "docs" / "assets" / "pipeline_overview.png",

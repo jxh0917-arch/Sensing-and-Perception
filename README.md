@@ -35,7 +35,8 @@ Industrial actions can be visually similar at the whole-body level, especially w
 |   |-- methodology.md               # model rationale and limitations
 |   |-- reproducibility.md           # end-to-end reproduction guide
 |   |-- results.md                   # reported metrics and interpretation
-|   `-- phd_interview_notes.md       # concise narrative for research interviews
+|   |-- project_notes.md             # concise project discussion notes
+|   `-- artifact_manifest.md         # public/local artifact split
 |-- environment.yml                  # optional Conda environment specification
 |-- tools/
 |   `-- validate_repository.py       # lightweight repository sanity checks
@@ -77,6 +78,36 @@ The final submission file is written to:
 HELLOWORLD/results/test_set_labels.csv
 ```
 
+## Project Showcase
+
+### Pipeline
+
+![Human-aware action recognition pipeline](docs/assets/pipeline_overview.png)
+
+The system combines a global temporal branch and a local arm branch. R3D-18 models whole-body motion from 16 sampled person crops, while SmallArmCNN models arm/tool cues from MediaPipe-derived crops. The final prediction uses weighted late fusion.
+
+### Training Evidence
+
+![Training and validation curves](docs/assets/training_curves.png)
+
+The training history shows fast convergence and a strong validation trajectory across the recorded epochs.
+
+### Test-set Prediction Distribution
+
+![Test-set prediction distribution](docs/assets/test_prediction_distribution.png)
+
+The exported test prediction file is:
+
+```text
+HELLOWORLD/results/test_set_labels.csv
+```
+
+It follows the required coursework format:
+
+```text
+video_id,class_name,class_id
+```
+
 ## Current Result Snapshot
 
 The included validation report records:
@@ -86,8 +117,6 @@ The included validation report records:
 - Micro F1 score: **0.9905**
 
 These results are from the internal validation split and should be interpreted as evidence for the development workflow, not as a substitute for the hidden test-set leaderboard.
-
-For a visual walkthrough of the full public project evidence, see [docs/showcase.md](docs/showcase.md).
 
 ## Reproducibility Notes
 
@@ -101,6 +130,6 @@ See [docs/reproducibility.md](docs/reproducibility.md) for the complete procedur
 See [docs/environment.md](docs/environment.md) for the dependency files and upload policy.
 See [docs/artifact_manifest.md](docs/artifact_manifest.md) for the public/local artifact split and large-file rationale.
 
-## Academic Positioning
+## Project Positioning
 
 This work is best presented as a task-informed fusion pipeline for human-aware collaborative robotics. Its value is not only the high validation score, but the explicit decomposition of action recognition into global temporal motion and local arm/tool interaction evidence. That decomposition gives a clear research argument for why the model should generalise better than a single black-box baseline in manufacturing settings.
