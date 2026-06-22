@@ -16,8 +16,5 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Validate repository structure and CSV outputs
-        run: python tools/validate_repository.py
-
-      - name: Compile Python sources
-        run: python -m py_compile HELLOWORLD/*.py
+      - name: Run repository workflow checks
+        run: python run_pipeline.py check

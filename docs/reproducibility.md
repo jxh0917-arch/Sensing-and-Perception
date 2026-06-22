@@ -140,3 +140,17 @@ python -m py_compile HELLOWORLD/*.py
 ```
 
 The GitHub Actions workflow runs these static checks automatically.
+
+You can also use the repository-level workflow runner:
+
+```bash
+python run_pipeline.py check
+python run_pipeline.py submission --dry-run
+```
+
+On Windows PowerShell:
+
+```powershell
+.\scripts\run_pipeline.ps1 check
+.\scripts\run_pipeline.ps1 submission -DryRun
+```

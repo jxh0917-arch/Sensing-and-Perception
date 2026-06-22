@@ -75,3 +75,5 @@ The reported validation split contains 7 examples per class across 30 classes.
 ## Reproducibility
 
 Reproduction instructions are in `docs/reproducibility.md`. Environment files are provided through `requirements.txt`, `HELLOWORLD/requirements.txt`, and `environment.yml`.
+
+Dataset scope and public/private boundaries are documented in `docs/data_card.md`.

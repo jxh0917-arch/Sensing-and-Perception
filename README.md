@@ -1,5 +1,10 @@
 # Human-aware Action Recognition for Collaborative Robots
 
+[![Repository checks](https://github.com/jxh0917-arch/Sensing-and-Perception/actions/workflows/ci.yml/badge.svg)](https://github.com/jxh0917-arch/Sensing-and-Perception/actions/workflows/ci.yml)
+![Python](https://img.shields.io/badge/python-3.12-blue)
+![PyTorch](https://img.shields.io/badge/PyTorch-2.7.0%2Bcu128-ee4c2c)
+![Task](https://img.shields.io/badge/task-human%20action%20recognition-4666ff)
+
 This repository contains a reproducible perception workflow for recognising human activities in manufacturing videos. It was developed for the 7CCEMSAP Sensing and Perception final project, where the system is assessed on reproducibility, originality, and justification.
 
 The project targets the HRI30 industrial human-robot interaction setting. The method combines whole-body temporal cues with local arm-motion evidence:
@@ -8,6 +13,13 @@ The project targets the HRI30 industrial human-robot interaction setting. The me
 - **SmallArmCNN branch**: learns local arm-pose cues from MediaPipe-derived arm crops.
 - **Late weighted fusion**: combines global and local evidence using `0.7 * R3D + 0.3 * ArmCNN`.
 - **Submission workflow**: produces `test_set_labels.csv` in the required `video_id,class_name,class_id` format.
+
+## Key Contributions
+
+- A task-informed dual-branch architecture for industrial human action recognition.
+- A reproducible preprocessing workflow combining YOLOv8 person crops and MediaPipe-guided arm crops.
+- Public documentation for setup, data boundaries, model behaviour, experiment tracking, and error analysis.
+- A lightweight CI workflow that checks repository structure and Python syntax.
 
 ## Why This Design
 
@@ -31,13 +43,17 @@ Industrial actions can be visually similar at the whole-body level, especially w
 |   `-- requirements.txt             # CUDA-oriented dependencies
 |-- docs/
 |   |-- environment.md              # dependency and upload policy
+|   |-- data_card.md                # dataset scope and public/private boundary
 |   |-- project_brief.md             # coursework objectives and deliverables
 |   |-- methodology.md               # model rationale and limitations
+|   |-- literature_context.md        # related work and design context
 |   |-- reproducibility.md           # end-to-end reproduction guide
 |   |-- results.md                   # reported metrics and interpretation
 |   |-- project_notes.md             # concise project discussion notes
 |   `-- artifact_manifest.md         # public/local artifact split
 |-- environment.yml                  # optional Conda environment specification
+|-- run_pipeline.py                  # workflow runner from repository root
+|-- scripts/run_pipeline.ps1         # PowerShell wrapper for Windows
 |-- tools/
 |   `-- validate_repository.py       # lightweight repository sanity checks
 `-- .github/workflows/ci.yml         # static CI checks
@@ -50,8 +66,7 @@ Large data, checkpoints, preprocessed frames, and local Python runtimes are inte
 From the repository root:
 
 ```bash
-cd HELLOWORLD
-python -m pip install -r requirements.txt
+python -m pip install -r HELLOWORLD/requirements.txt
 ```
 
 Place the supplied datasets in:
@@ -64,12 +79,20 @@ HELLOWORLD/test_set/
 Then run the full workflow:
 
 ```bash
+cd HELLOWORLD
 python preprocess_videos.py
 python split_dataset.py
 python train_dual.py
 python validate.py
 python preprocess_test_video.py
 python testing_set_application.py
+```
+
+Alternatively, run common workflow targets from the repository root:
+
+```bash
+python run_pipeline.py check
+python run_pipeline.py submission
 ```
 
 The final submission file is written to:
@@ -134,6 +157,8 @@ These results are from the internal validation split and should be interpreted a
 
 See [docs/reproducibility.md](docs/reproducibility.md) for the complete procedure.
 See [docs/environment.md](docs/environment.md) for the dependency files and upload policy.
+See [docs/data_card.md](docs/data_card.md) for dataset scope and public/private boundaries.
+See [docs/literature_context.md](docs/literature_context.md) for related work and method context.
 See [docs/model_card.md](docs/model_card.md) for intended use, inputs, outputs, and limitations.
 See [docs/experiment_log.md](docs/experiment_log.md) for the completed experiment and planned ablation protocol.
 See [docs/error_analysis.md](docs/error_analysis.md) for the validation error focus.

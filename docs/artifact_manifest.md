@@ -9,6 +9,8 @@ This manifest explains which project artifacts are public in GitHub and which ar
 | Main project narrative | `README.md` | Academic overview and quick start |
 | Technical workflow | `HELLOWORLD/README.md` | Execution commands and file roles |
 | Methodology | `docs/methodology.md` | Model rationale and limitations |
+| Data card | `docs/data_card.md` | Dataset scope and public/private boundary |
+| Literature context | `docs/literature_context.md` | Related work and method context |
 | Reproducibility guide | `docs/reproducibility.md` | End-to-end rerun instructions |
 | Results summary | `docs/results.md` | Validation metrics and interpretation |
 | Model card | `docs/model_card.md` | Intended use, inputs, outputs, and limitations |
@@ -18,6 +20,7 @@ This manifest explains which project artifacts are public in GitHub and which ar
 | README showcase | `README.md` | Visual project walkthrough |
 | Environment guide | `docs/environment.md` | Reproducible setup and upload policy |
 | Conda environment | `environment.yml` | Optional environment recreation file |
+| Workflow runner | `run_pipeline.py` | Runs common workflow stages from the repository root |
 | Prediction CSV | `HELLOWORLD/results/test_set_labels.csv` | Required final output format |
 | Detailed predictions | `HELLOWORLD/results/test_set_labels_detailed.csv` | Confidence analysis |
 | Validation report | `HELLOWORLD/results/test_report.txt` | Per-class metrics |
